@@ -1,18 +1,115 @@
+
+:root {
+
+    /* Gradient */
+
+    --bg-gradient-dark-primary: linear-gradient(
+        to bottom right,
+        rgb(63, 63, 64) 3%,
+        rgb(48, 48, 48) 97%
+    );
+
+    --border-gradient-dark-primary: linear-gradient(
+        to bottom right,
+        rgb(64, 64, 64) 0%,
+        rgb(64, 64, 64) 50%
+    );
+
+    /* Colors */
+    --primary-dark-color: #101212;
+    --secondary-dark-color: #1E1E1E;
+    --tertiary-dark-color: #313131;
+
+    --primary-light-color: #3d3838;
+    --orage-yellow: #ffdb70;
+    --light-gray: #d6d6d6b3;
+    --white: #fff;
+
+    /* Box shadows */
+    --shadow-1: -4px 8px 24px rgba(0, 0, 0, 0.25);
+    --shadow-2: 0 16px 30px rgba(0, 0, 0, 0.25);
+    --shadow-3: 0 16px 40px rgba(0, 0, 0, 0.25);
+    --shadow-4: 0 25px 50px rgba(0, 0, 0, 0.15);
+    --shadow-5: 0 24px 80px rgba(0, 0, 0, 0.25);
+
+    /* Font-family */
+    --ff-poppins: 'Poppins', sans-serif;
+
+    /* font-size */
+    --fs-1: 24px;
+    --fs-2: 18px;
+    --fs-3: 17px;
+    --fs-4: 16px;
+    --fs-5: 15px;
+    --fs-6: 14px;
+    --fs-7: 13px;
+    --fs-8: 11px;
+
+    /* font-weight */
+    --fw-300: 300;
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-600: 600;
+
+
+}
+
+
+/* Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li { list-style: none; }
+
+img, em, a, span { display: block;}
+
+
 html {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--ff-poppins);
 }
 
 body{
-    background-color: #101212;
+    background-color: var(--primary-dark-color);
     color: #fff;
 }
 
+main {
+    margin-top: 60px;
+    margin-bottom: 100px;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    padding: 0 20px;
+}
+
+/* Design */
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-light-color);
+    margin: 16px 0;
+}
+
 .sidebar {
-    background-color: #1E1E1E;
-    border: 1px solid #313131;
+    max-height: 550px;
+}
+
+.sidebar, article {
+    background-color: var(--secondary-dark-color);
+    border: 1px solid var(--tertiary-dark-color);
     border-radius: 20px;
     padding: 15px;
-    box-shadow: -4px 8px 24px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--shadow-1);
     z-index: 1;
 }
 
@@ -25,14 +122,14 @@ body{
 }
 
 .avatar-box {
-    background-color: #373933;
+    background: var(--bg-gradient-dark-primary);
     border-radius: 20px;
 }
 
 .info-content .name {
     color: #fff;
-    font-size: 17px;
-    font-weight: 300;
+    font-size: var(--fs-3);
+    font-weight: var(--fw-300);
     width: max-content;
     padding: 3px 12px;
     border-radius: 8px;
@@ -41,9 +138,89 @@ body{
 .info-content .title {
     color: #fff;
     background-color: #2B2B2B;
-    font-size: 8px;
-    font-weight: 300;
+    font-size: var(--fs-8);
+    font-weight: var(--fw-300);
     width: max-content;
     padding: 3px 12px;
     border-radius: 8px;
+}
+
+.icon-box {
+    position: relative;
+    background: var(--border-gradient-dark-primary );
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fs-4);
+    color: var(--orage-yellow);
+    box-shadow: var(--shadow-1);
+    z-index: 1;
+}
+
+.contact-item {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--fs-4);
+}
+
+.contact-info {
+    max-width: calc(100% - 46px);
+    width: calc(100% - 46px);
+}
+
+.contact-title {
+    color: var(--light-gray);
+    font-size: var(--fs-8);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.contact-info :is(.contact-link, time, address){
+    color: var(--white);
+    font-size: var(--fs-7);
+}
+
+.contact-info address {
+    font-style: normal;
+}
+
+.main-content {
+    position: relative;
+    width: max-content;
+    margin:auto;
+}
+
+.article-title {
+    position: relative;
+    padding-bottom: 7px;
+}
+
+.article-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background-color: var(--orage-yellow);
+    border-radius: 3px;
+}
+
+.about-text, .article-title {
+    margin-bottom: 15px;
+}
+
+.about-text {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+    line-height: 1.6;
+}
+
+.about-text p {
+    margin-bottom: 15px;
 }
